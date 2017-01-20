@@ -82,7 +82,7 @@ module.exports = function exports (grunt, _spawn) {
                 , limit
                 , function(args, _cb) {
                     // update the label, do the work
-                    work(itLabel + ':' + args[1].replace(/\//g, '-')
+                    work(itLabel + '-' + args[1].replace(/[\/|\\|:]/g, '-')
                         , args[0]
                         , _.cloneDeep(env)
                         , _.cloneDeep(localopts)
@@ -95,7 +95,7 @@ module.exports = function exports (grunt, _spawn) {
                 , limit
                 , function(file, _cb) {
                     // update the label, do the work
-                    work(itLabel + ':' + file.replace(/\//g, '-')
+                    work(itLabel + '-' + file.replace(/[\/|\\|:]/g, '-')
                         , [file]
                         , _.cloneDeep(env)
                         , _.cloneDeep(localopts)
